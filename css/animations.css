@@ -1536,3 +1536,123 @@ body::after {
         animation: none !important;
     }
 }
+
+/* =========================================
+   CYBER//BREACH — RESPONSIVE FINAL POLISH
+   ========================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Prevent decorative HUD layers from affecting layout */
+
+.hero-section::before,
+.hero-section::after,
+body::before,
+body::after {
+    pointer-events: none;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+
+    .hero-section {
+        overflow: hidden;
+    }
+
+    .incident-header {
+        gap: 18px;
+    }
+
+    .balance-core {
+        transform: scale(0.92);
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .section-heading {
+        gap: 12px;
+    }
+
+    .section-index {
+        flex-shrink: 0;
+    }
+
+    .incident-header {
+        grid-template-columns: 1fr;
+    }
+
+    .terminal-output {
+        min-height: 180px;
+        max-height: 300px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .terminal-line {
+        font-size: 11px;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+    }
+
+    .incident-timeline {
+        overflow-x: hidden;
+    }
+
+    .timeline-item {
+        max-width: 100%;
+    }
+
+    .balance-core {
+        transform: scale(0.82);
+    }
+
+    .hero-section::after {
+        animation-duration: 14s;
+    }
+
+}
+
+/* Small phones */
+
+@media (max-width: 430px) {
+
+    .terminal-line {
+        font-size: 10px;
+    }
+
+    .balance-core {
+        transform: scale(0.72);
+    }
+
+    .section-kicker {
+        letter-spacing: 0.11em;
+    }
+
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+
+}
