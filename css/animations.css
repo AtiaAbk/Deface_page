@@ -813,3 +813,726 @@
         opacity: 0;
     }
 }
+
+/* =========================================
+   CYBER//BREACH — HUD ENHANCEMENT
+   ========================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    z-index: 999;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.018) 0px,
+            rgba(255,255,255,0.018) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    opacity: 0.22;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    z-index: 998;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 45%,
+            rgba(0,0,0,0.55) 100%
+        );
+}
+
+.system-ready {
+    --hud-intensity: 1;
+}
+
+.system-ready .section-heading {
+    animation: hud-heading-in 0.8s ease both;
+}
+
+.system-ready .section-index {
+    text-shadow:
+        0 0 8px rgba(255,23,68,0.8);
+}
+
+.system-ready .panel-status,
+.system-ready .status-card {
+    position: relative;
+}
+
+.system-ready .panel-status::before,
+.system-ready .status-card::before {
+    content: "";
+
+    display: inline-block;
+
+    width: 6px;
+    height: 6px;
+
+    margin-right: 8px;
+
+    border-radius: 50%;
+
+    background: currentColor;
+
+    box-shadow:
+        0 0 8px currentColor;
+
+    animation: status-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes hud-heading-in {
+    from {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes status-pulse {
+    0%,
+    100% {
+        opacity: 0.45;
+        transform: scale(0.85);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after {
+        display: none;
+    }
+
+    .system-ready .section-heading,
+    .system-ready .panel-status::before,
+    .system-ready .status-card::before {
+        animation: none !important;
+    }
+}
+
+
+/* =========================================
+   CYBER//BREACH — TACTICAL HUD LAYER
+   ========================================= */
+
+.visual-card,
+.side-panel,
+.incident-dashboard,
+.terminal-window,
+.radar-container {
+    position: relative;
+}
+
+/* Tactical corner brackets */
+
+.visual-card::before,
+.visual-card::after,
+.side-panel::before,
+.side-panel::after,
+.incident-dashboard::before,
+.incident-dashboard::after,
+.terminal-window::before,
+.terminal-window::after {
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    pointer-events: none;
+
+    transition:
+        width 0.3s ease,
+        height 0.3s ease;
+}
+
+.visual-card::before,
+.side-panel::before,
+.incident-dashboard::before,
+.terminal-window::before {
+    top: -1px;
+    left: -1px;
+
+    border-top: 1px solid var(--red);
+    border-left: 1px solid var(--red);
+}
+
+.visual-card::after,
+.side-panel::after,
+.incident-dashboard::after,
+.terminal-window::after {
+    right: -1px;
+    bottom: -1px;
+
+    border-right: 1px solid var(--red);
+    border-bottom: 1px solid var(--red);
+}
+
+.visual-card:hover::before,
+.visual-card:hover::after,
+.side-panel:hover::before,
+.side-panel:hover::after,
+.incident-dashboard:hover::before,
+.incident-dashboard:hover::after,
+.terminal-window:hover::before,
+.terminal-window:hover::after {
+    width: 28px;
+    height: 28px;
+}
+
+/* HUD labels */
+
+.visual-card .card-label,
+.side-panel .panel-label,
+.incident-header span,
+.section-kicker {
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+/* Active status bars */
+
+.panel-status,
+.final-status,
+.status-card {
+    overflow: hidden;
+}
+
+.panel-status::after,
+.final-status::after,
+.status-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: -100%;
+    bottom: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: currentColor;
+
+    opacity: 0.6;
+
+    animation: hud-sweep 4s linear infinite;
+}
+
+@keyframes hud-sweep {
+    0% {
+        left: -100%;
+    }
+
+    45%,
+    100% {
+        left: 100%;
+    }
+}
+
+/* Tactical hover elevation */
+
+.visual-card:hover,
+.side-panel:hover,
+.incident-dashboard:hover,
+.terminal-window:hover {
+    transform: translateY(-3px);
+}
+
+/* Operator / intelligence emphasis */
+
+.offense-panel {
+    box-shadow:
+        inset 0 0 35px rgba(255,23,68,0.035);
+}
+
+.defense-panel {
+    box-shadow:
+        inset 0 0 35px rgba(57,255,136,0.035);
+}
+
+.balance-core {
+    position: relative;
+}
+
+.balance-core::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -20px;
+
+    border: 1px solid rgba(255,255,255,0.035);
+
+    transform: rotate(45deg);
+
+    pointer-events: none;
+}
+
+/* Incident header telemetry */
+
+.incident-header > div {
+    position: relative;
+
+    transition:
+        transform 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+.incident-header > div:hover {
+    transform: translateY(-2px);
+}
+
+.incident-header strong {
+    display: inline-block;
+    margin-top: 5px;
+
+    font-family: "JetBrains Mono", monospace;
+
+    letter-spacing: 0.08em;
+}
+
+/* Terminal cursor */
+
+.terminal-output::after {
+    content: "█";
+
+    display: inline-block;
+
+    margin-left: 4px;
+
+    color: var(--red);
+
+    animation: cursor-blink 0.9s steps(1) infinite;
+}
+
+@keyframes cursor-blink {
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    46%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Mobile optimization */
+
+@media (max-width: 700px) {
+
+    .balance-core::before {
+        inset: -10px;
+    }
+
+    .visual-card::before,
+    .visual-card::after,
+    .side-panel::before,
+    .side-panel::after,
+    .incident-dashboard::before,
+    .incident-dashboard::after,
+    .terminal-window::before,
+    .terminal-window::after {
+        width: 12px;
+        height: 12px;
+    }
+
+}
+
+
+/* =========================================
+   CYBER//BREACH — OPERATOR VISUAL UPGRADE
+   ========================================= */
+
+.operator-silhouette {
+    position: relative;
+    isolation: isolate;
+
+    filter:
+        drop-shadow(0 0 18px rgba(255,23,68,0.16))
+        drop-shadow(0 0 55px rgba(0,0,0,0.9));
+}
+
+/* Atmospheric halo */
+
+.operator-silhouette::before {
+    content: "";
+
+    position: absolute;
+
+    width: 70%;
+    aspect-ratio: 1;
+
+    left: 15%;
+    top: 12%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,23,68,0.16) 0%,
+            rgba(255,23,68,0.06) 30%,
+            transparent 70%
+        );
+
+    filter: blur(18px);
+
+    z-index: -1;
+
+    animation: operator-halo 4s ease-in-out infinite;
+}
+
+/* Tactical targeting ring */
+
+.operator-silhouette::after {
+    content: "";
+
+    position: absolute;
+
+    width: 78%;
+    aspect-ratio: 1;
+
+    left: 11%;
+    top: 8%;
+
+    border: 1px solid rgba(255,23,68,0.16);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 12px rgba(255,23,68,0.025),
+        0 0 0 24px rgba(255,23,68,0.015);
+
+    animation: operator-ring 12s linear infinite;
+
+    pointer-events: none;
+}
+
+/* Scan line across operator */
+
+.operator-glow {
+    position: relative;
+    overflow: hidden;
+}
+
+.operator-glow::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: -20%;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,23,68,0.75),
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px rgba(255,23,68,0.6);
+
+    animation: operator-scan 5s linear infinite;
+}
+
+/* Operator metadata */
+
+.operator-label {
+    position: relative;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+}
+
+.operator-label::before {
+    content: "/// ";
+
+    color: var(--red);
+
+    animation: label-blink 2s steps(1) infinite;
+}
+
+/* Status indicator */
+
+.operator-status {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.operator-status::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--red);
+
+    box-shadow:
+        0 0 8px var(--red),
+        0 0 18px rgba(255,23,68,0.55);
+
+    animation: operator-status-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes operator-halo {
+    0%,
+    100% {
+        transform: scale(0.92);
+        opacity: 0.65;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+@keyframes operator-ring {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes operator-scan {
+    0% {
+        top: -10%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 110%;
+        opacity: 0;
+    }
+}
+
+@keyframes label-blink {
+    0%,
+    88%,
+    100% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0.25;
+    }
+
+    92% {
+        opacity: 1;
+    }
+}
+
+@keyframes operator-status-pulse {
+    0%,
+    100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .operator-silhouette::before,
+    .operator-silhouette::after,
+    .operator-glow::after,
+    .operator-label::before,
+    .operator-status::before {
+        animation: none !important;
+    }
+}
+
+
+/* =========================================
+   CYBER//BREACH — TERMINAL HUD POLISH
+   ========================================= */
+
+.terminal-window {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,23,68,0.025),
+            transparent 30%
+        ),
+        var(--surface);
+}
+
+.terminal-output {
+    position: relative;
+    min-height: 220px;
+    font-family: "JetBrains Mono", monospace;
+}
+
+.terminal-line {
+    position: relative;
+    padding: 4px 0;
+    color: rgba(255,255,255,0.72);
+    animation: terminal-line-in 0.35s ease both;
+}
+
+.terminal-line::before {
+    content: ">";
+    margin-right: 9px;
+    color: var(--red);
+}
+
+.terminal-line:nth-child(3n)::before {
+    color: var(--green);
+}
+
+.terminal-line:nth-child(4n)::before {
+    color: #00e5ff;
+}
+
+@keyframes terminal-line-in {
+    from {
+        opacity: 0;
+        transform: translateX(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* =========================================
+   THREAT RADAR HUD
+   ========================================= */
+
+.radar-container {
+    position: relative;
+    isolation: isolate;
+}
+
+.radar-container::before {
+    content: "";
+
+    position: absolute;
+    inset: 8%;
+
+    border: 1px dashed rgba(57,255,136,0.12);
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    animation: radar-ring-pulse 4s ease-in-out infinite;
+}
+
+.radar-container::after {
+    content: "LIVE // SIMULATION";
+
+    position: absolute;
+
+    right: 12px;
+    top: 12px;
+
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+
+    color: var(--green);
+
+    opacity: 0.65;
+}
+
+.radar-node {
+    box-shadow:
+        0 0 8px currentColor,
+        0 0 18px currentColor;
+
+    animation:
+        radar-node-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes radar-ring-pulse {
+    0%,
+    100% {
+        opacity: 0.45;
+        transform: scale(0.98);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+}
+
+@keyframes radar-node-pulse {
+    0%,
+    100% {
+        opacity: 0.45;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .terminal-line,
+    .radar-container::before,
+    .radar-node {
+        animation: none !important;
+    }
+}
