@@ -1,0 +1,815 @@
+/* =========================================
+   CYBER//BREACH — ANIMATION ENGINE
+   ========================================= */
+
+/* ---------- HERO GLITCH ---------- */
+
+.glitch-target {
+    animation:
+        hero-flicker 7s infinite,
+        hero-glitch 5s infinite;
+}
+
+.glitch-target::before,
+.glitch-target::after {
+    content: attr(data-text);
+
+    position: absolute;
+    inset: 0;
+
+    font: inherit;
+    letter-spacing: inherit;
+
+    pointer-events: none;
+}
+
+.glitch-target::before {
+    color: #ff1744;
+
+    transform: translate(-3px, 0);
+
+    clip-path: inset(15% 0 65% 0);
+
+    opacity: 0;
+
+    animation: glitch-red 4s infinite;
+}
+
+.glitch-target::after {
+    color: #00e5ff;
+
+    transform: translate(3px, 0);
+
+    clip-path: inset(65% 0 15% 0);
+
+    opacity: 0;
+
+    animation: glitch-cyan 3.5s infinite;
+}
+
+
+/* ---------- SCAN EFFECT ---------- */
+
+.hero-section::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: -20%;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,23,68,0.8),
+        transparent
+    );
+
+    box-shadow:
+        0 0 20px rgba(255,23,68,0.45);
+
+    pointer-events: none;
+
+    animation: horizontal-scan 8s linear infinite;
+}
+
+
+/* ---------- OPERATOR ---------- */
+
+.operator-silhouette {
+    animation:
+        operator-breathe 5s ease-in-out infinite,
+        operator-flicker 9s steps(2) infinite;
+}
+
+.operator-glow {
+    animation: operator-glow-pulse 4s ease-in-out infinite;
+}
+
+.operator-eye {
+    animation:
+        eye-pulse 2.5s ease-in-out infinite,
+        eye-flicker 7s steps(2) infinite;
+}
+
+.operator-label {
+    animation: label-float 4s ease-in-out infinite;
+}
+
+
+/* ---------- BUTTON ---------- */
+
+.cyber-button {
+    overflow: hidden;
+}
+
+.cyber-button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: -120%;
+
+    width: 70%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.18),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.5s ease;
+}
+
+.cyber-button:hover::before {
+    left: 140%;
+}
+
+
+/* ---------- TERMINAL ---------- */
+
+.terminal-window {
+    animation: terminal-breathe 5s ease-in-out infinite;
+}
+
+.terminal-header {
+    position: relative;
+}
+
+.terminal-header::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -1px;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--red),
+        transparent
+    );
+
+    animation: terminal-line 3s linear infinite;
+}
+
+
+/* ---------- PIPELINE ---------- */
+
+.pipeline-node {
+    animation: node-idle 5s ease-in-out infinite;
+}
+
+.pipeline-node:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.pipeline-node:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.pipeline-node:nth-child(5) {
+    animation-delay: 1.2s;
+}
+
+.pipeline-node:nth-child(7) {
+    animation-delay: 1.8s;
+}
+
+.pipeline-arrow {
+    animation: arrow-pulse 2s ease-in-out infinite;
+}
+
+
+/* ---------- RADAR ---------- */
+
+.radar-container {
+    animation: radar-glow 5s ease-in-out infinite;
+}
+
+.radar-sweep {
+    will-change: transform;
+}
+
+.radar-node {
+    will-change: transform, opacity;
+}
+
+
+/* ---------- METRICS ---------- */
+
+.metric strong,
+.status-card strong {
+    transition:
+        text-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.metric:hover strong {
+    transform: translateX(-4px);
+
+    text-shadow:
+        0 0 12px currentColor;
+}
+
+
+/* ---------- INCIDENT TIMELINE ---------- */
+
+.timeline-item {
+    opacity: 0;
+
+    transform: translateX(-20px);
+
+    animation: timeline-reveal 0.7s ease forwards;
+}
+
+.timeline-item:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(2) {
+    animation-delay: 0.45s;
+}
+
+.timeline-item:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.timeline-item:nth-child(4) {
+    animation-delay: 0.95s;
+}
+
+
+/* ---------- FINAL STATUS ---------- */
+
+.final-status {
+    animation: final-breathe 6s ease-in-out infinite;
+}
+
+.final-status h2 {
+    animation: final-flicker 8s infinite;
+}
+
+
+/* ---------- BOOT ---------- */
+
+.boot-screen {
+    animation: boot-screen-stable 0.8s ease;
+}
+
+.boot-brand {
+    animation: boot-brand-flicker 2s infinite;
+}
+
+.boot-progress span {
+    animation: boot-progress-glow 1.4s ease-in-out infinite;
+}
+
+
+/* =========================================
+   KEYFRAMES
+   ========================================= */
+
+@keyframes hero-flicker {
+    0%,
+    96%,
+    100% {
+        opacity: 1;
+    }
+
+    97% {
+        opacity: 0.92;
+    }
+
+    98% {
+        opacity: 1;
+    }
+
+    99% {
+        opacity: 0.85;
+    }
+}
+
+
+@keyframes hero-glitch {
+    0%,
+    88%,
+    100% {
+        transform: translate(0);
+    }
+
+    89% {
+        transform: translate(-2px, 1px);
+    }
+
+    90% {
+        transform: translate(3px, -1px);
+    }
+
+    91% {
+        transform: translate(0);
+    }
+}
+
+
+@keyframes glitch-red {
+    0%,
+    82%,
+    100% {
+        opacity: 0;
+        transform: translate(0);
+    }
+
+    84% {
+        opacity: 0.8;
+        transform: translate(-4px, 0);
+    }
+
+    85% {
+        opacity: 0.5;
+        transform: translate(5px, 1px);
+    }
+
+    86% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes glitch-cyan {
+    0%,
+    75%,
+    100% {
+        opacity: 0;
+        transform: translate(0);
+    }
+
+    77% {
+        opacity: 0.7;
+        transform: translate(4px, 0);
+    }
+
+    78% {
+        opacity: 0.4;
+        transform: translate(-5px, -1px);
+    }
+
+    79% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes horizontal-scan {
+    0% {
+        top: -10%;
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 110%;
+        opacity: 0;
+    }
+}
+
+
+@keyframes operator-breathe {
+    0%,
+    100% {
+        transform: scale(1) translateY(0);
+    }
+
+    50% {
+        transform: scale(1.015) translateY(-4px);
+    }
+}
+
+
+@keyframes operator-flicker {
+    0%,
+    96%,
+    100% {
+        opacity: 0.92;
+    }
+
+    97% {
+        opacity: 0.7;
+    }
+
+    98% {
+        opacity: 0.96;
+    }
+}
+
+
+@keyframes operator-glow-pulse {
+    0%,
+    100% {
+        opacity: 0.7;
+        transform: scale(0.95);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+
+@keyframes eye-pulse {
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: translateX(-50%) scaleX(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scaleX(1.4);
+    }
+}
+
+
+@keyframes eye-flicker {
+    0%,
+    91%,
+    100% {
+        filter: brightness(1);
+    }
+
+    92% {
+        filter: brightness(2.5);
+    }
+
+    93% {
+        filter: brightness(0.5);
+    }
+
+    94% {
+        filter: brightness(2);
+    }
+}
+
+
+@keyframes label-float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+@keyframes terminal-breathe {
+    0%,
+    100% {
+        box-shadow:
+            0 0 60px rgba(255,23,68,0.05);
+    }
+
+    50% {
+        box-shadow:
+            0 0 80px rgba(255,23,68,0.1);
+    }
+}
+
+
+@keyframes terminal-line {
+    0% {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+}
+
+
+@keyframes node-idle {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+
+@keyframes arrow-pulse {
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: translateX(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(5px);
+    }
+}
+
+
+@keyframes radar-glow {
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 rgba(57,255,136,0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 45px rgba(57,255,136,0.08);
+    }
+}
+
+
+@keyframes timeline-reveal {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes final-breathe {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+
+@keyframes final-flicker {
+    0%,
+    94%,
+    100% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 0.82;
+    }
+
+    96% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes boot-screen-stable {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes boot-brand-flicker {
+    0%,
+    90%,
+    100% {
+        opacity: 1;
+    }
+
+    92% {
+        opacity: 0.65;
+    }
+
+    94% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes boot-progress-glow {
+    0%,
+    100% {
+        box-shadow:
+            0 0 5px rgba(255,23,68,0.2);
+    }
+
+    50% {
+        box-shadow:
+            0 0 16px rgba(255,23,68,0.8);
+    }
+}
+
+
+/* =========================================
+   HOVER DISTORTION
+   ========================================= */
+
+.visual-card,
+.pipeline-node,
+.side-panel,
+.incident-dashboard {
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.visual-card:hover {
+    transform: translateY(-6px);
+
+    border-color: var(--border-red);
+
+    box-shadow:
+        0 20px 70px rgba(255,23,68,0.08);
+}
+
+
+.side-panel:hover {
+    transform: translateY(-4px);
+}
+
+
+.incident-dashboard:hover {
+    border-color: rgba(255,255,255,0.16);
+}
+
+
+/* =========================================
+   MOBILE MOTION SAFETY
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .glitch-target::before,
+    .glitch-target::after {
+        display: none;
+    }
+
+    .hero-section::after {
+        animation-duration: 12s;
+    }
+
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .glitch-target,
+    .operator-silhouette,
+    .operator-glow,
+    .operator-eye,
+    .operator-label,
+    .cyber-button::before,
+    .terminal-window,
+    .pipeline-node,
+    .pipeline-arrow,
+    .radar-container,
+    .radar-sweep,
+    .radar-node,
+    .timeline-item,
+    .final-status,
+    .final-status h2,
+    .boot-screen,
+    .boot-brand,
+    .boot-progress span,
+    .hero-section::after {
+        animation: none !important;
+    }
+
+}
+
+/* =========================================
+   ACTIVE GLITCH BURST
+   ========================================= */
+
+.glitch-active {
+    animation:
+        glitch-burst-main 0.45s steps(2, end);
+}
+
+.glitch-active::before {
+    opacity: 0.85 !important;
+    animation: glitch-burst-red 0.45s steps(3, end) !important;
+}
+
+.glitch-active::after {
+    opacity: 0.75 !important;
+    animation: glitch-burst-cyan 0.45s steps(3, end) !important;
+}
+
+@keyframes glitch-burst-main {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-5px, 2px);
+    }
+
+    40% {
+        transform: translate(4px, -2px);
+    }
+
+    60% {
+        transform: translate(-2px, 1px);
+    }
+
+    80% {
+        transform: translate(3px, 0);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+@keyframes glitch-burst-red {
+    0% {
+        clip-path: inset(10% 0 80% 0);
+        transform: translate(-7px, 0);
+    }
+
+    25% {
+        clip-path: inset(55% 0 20% 0);
+        transform: translate(6px, -2px);
+    }
+
+    50% {
+        clip-path: inset(30% 0 45% 0);
+        transform: translate(-4px, 2px);
+    }
+
+    75% {
+        clip-path: inset(75% 0 8% 0);
+        transform: translate(5px, 0);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes glitch-burst-cyan {
+    0% {
+        clip-path: inset(70% 0 10% 0);
+        transform: translate(7px, 0);
+    }
+
+    25% {
+        clip-path: inset(20% 0 60% 0);
+        transform: translate(-5px, 1px);
+    }
+
+    50% {
+        clip-path: inset(45% 0 30% 0);
+        transform: translate(5px, -1px);
+    }
+
+    75% {
+        clip-path: inset(8% 0 75% 0);
+        transform: translate(-6px, 0);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
