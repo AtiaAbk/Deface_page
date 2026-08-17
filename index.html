@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="CYBER//BREACH — Authorized Cybersecurity Incident Simulation">
+
+    <meta name="theme-color" content="#030303">
+
+    <title>CYBER//BREACH — Security Incident Simulation</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         GLOBAL VISUAL LAYERS
+         ========================================= -->
+
+    <div id="boot-screen" class="boot-screen" aria-hidden="true">
+        <div class="boot-terminal">
+            <div class="boot-brand">CYBER//BREACH</div>
+            <div class="boot-line" id="boot-line"></div>
+            <div class="boot-progress">
+                <span id="boot-progress-bar"></span>
+            </div>
+            <button id="skip-boot" class="boot-skip">
+                SKIP INITIALIZATION
+            </button>
+        </div>
+    </div>
+
+    <div class="background-system" aria-hidden="true">
+        <div class="grid-layer"></div>
+        <div class="scanline-layer"></div>
+        <div class="noise-layer"></div>
+        <div id="particle-layer"></div>
+        <div id="network-layer"></div>
+    </div>
+
+    <!-- =========================================
+         NAVIGATION
+         ========================================= -->
+
+    <header class="site-header">
+        <a href="#hero" class="brand" aria-label="CYBER BREACH home">
+            <span class="brand-mark">//</span>
+            <span>CYBER<span class="brand-slash">//</span>BREACH</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="#operator">OPERATOR</a>
+            <a href="#terminal">CONSOLE</a>
+            <a href="#intelligence">INTELLIGENCE</a>
+            <a href="#defense">DEFENSE</a>
+            <a href="#incident">INCIDENT</a>
+        </nav>
+
+        <div class="system-state">
+            <span class="status-dot"></span>
+            <span>SYSTEM ONLINE</span>
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- =========================================
+             HERO
+             ========================================= -->
+
+        <section id="hero" class="hero-section">
+
+            <div class="hero-content">
+
+                <div class="classification">
+                    <span class="classification-line"></span>
+                    AUTHORIZED SECURITY RESEARCH
+                    <span class="classification-line"></span>
+                </div>
+
+                <p class="hero-eyebrow">
+                    SECURITY INCIDENT SIMULATION // 2026
+                </p>
+
+                <h1 class="hero-title glitch-target" data-text="HACKED">
+                    HACKED
+                </h1>
+
+                <div class="hero-subtitle">
+                    <span>ACCESS</span>
+                    <span class="accent-red">COMPROMISED</span>
+                </div>
+
+                <p class="hero-description">
+                    A cinematic cybersecurity laboratory interface
+                    representing offensive intelligence, threat analysis
+                    and defensive response.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#terminal" class="cyber-button primary">
+                        <span>ENTER LAB</span>
+                        <span class="button-arrow">→</span>
+                    </a>
+
+                    <a href="#incident" class="cyber-button secondary">
+                        VIEW INCIDENT
+                    </a>
+                </div>
+
+                <div class="hero-meta">
+                    <span>MODE: <strong>SIMULATION</strong></span>
+                    <span>THREAT: <strong class="red-text">ELEVATED</strong></span>
+                    <span>DEFENSE: <strong class="green-text">ONLINE</strong></span>
+                </div>
+
+            </div>
+
+            <div class="hero-operator" aria-hidden="true">
+                <div class="operator-frame">
+                    <div class="operator-glow"></div>
+
+                    <div class="operator-silhouette">
+                        <span class="operator-eye"></span>
+                    </div>
+
+                    <div class="operator-label">
+                        <span>OPERATOR</span>
+                        <strong>BLACK//VEIL</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-scroll">
+                <span>SCROLL TO ANALYZE</span>
+                <span class="scroll-line"></span>
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             OPERATOR PROFILE
+             ========================================= -->
+
+        <section id="operator" class="section operator-section">
+
+            <div class="section-heading">
+                <span class="section-index">01</span>
+                <div>
+                    <p class="section-kicker">IDENTITY // PROFILE</p>
+                    <h2>THE OPERATOR</h2>
+                </div>
+            </div>
+
+            <div class="operator-grid">
+
+                <div class="operator-card visual-card">
+                    <div class="card-corner top-left"></div>
+                    <div class="card-corner bottom-right"></div>
+
+                    <div class="operator-placeholder">
+                        <span class="operator-symbol">◉</span>
+                        <span>OPERATOR VISUAL</span>
+                        <small>BLACK-HAT SECURITY RESEARCH</small>
+                    </div>
+
+                    <div class="card-overlay">
+                        <span>IDENTITY // CLASSIFIED</span>
+                    </div>
+                </div>
+
+                <div class="operator-info">
+
+                    <p class="terminal-prefix">&gt; loading_operator_profile...</p>
+
+                    <h3>
+                        BLACK<span>//</span>VEIL
+                    </h3>
+
+                    <p class="operator-description">
+                        A fictional female black-hat security persona
+                        representing offensive security research,
+                        digital forensics and defensive intelligence
+                        within an authorized laboratory environment.
+                    </p>
+
+                    <div class="profile-data">
+
+                        <div class="data-row">
+                            <span>CODENAME</span>
+                            <strong>BLACK//VEIL</strong>
+                        </div>
+
+                        <div class="data-row">
+                            <span>ROLE</span>
+                            <strong>SECURITY RESEARCHER</strong>
+                        </div>
+
+                        <div class="data-row">
+                            <span>SPECIALIZATION</span>
+                            <strong>OFFENSIVE INTELLIGENCE</strong>
+                        </div>
+
+                        <div class="data-row">
+                            <span>FORENSICS</span>
+                            <strong>ACTIVE</strong>
+                        </div>
+
+                        <div class="data-row">
+                            <span>ENVIRONMENT</span>
+                            <strong>AUTHORIZED LAB</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             LIVE TERMINAL
+             ========================================= -->
+
+        <section id="terminal" class="section terminal-section">
+
+            <div class="section-heading">
+                <span class="section-index">02</span>
+                <div>
+                    <p class="section-kicker">TELEMETRY // LIVE FEED</p>
+                    <h2>SECURITY CONSOLE</h2>
+                </div>
+            </div>
+
+            <div class="terminal-wrapper">
+
+                <div class="terminal-window">
+
+                    <div class="terminal-header">
+                        <div class="terminal-controls">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <span>CYBER//BREACH :: LIVE CONSOLE</span>
+
+                        <span class="terminal-status">
+                            ● ONLINE
+                        </span>
+                    </div>
+
+                    <div id="terminal-output"
+                         class="terminal-output"
+                         aria-live="polite">
+                    </div>
+
+                    <div class="terminal-input-line">
+                        <span>&gt;</span>
+                        <span id="terminal-cursor">_</span>
+                    </div>
+
+                </div>
+
+                <div class="terminal-status-grid">
+
+                    <div class="status-card">
+                        <span>THREAT MONITOR</span>
+                        <strong class="green-text">ONLINE</strong>
+                    </div>
+
+                    <div class="status-card">
+                        <span>TELEMETRY</span>
+                        <strong>ACTIVE</strong>
+                    </div>
+
+                    <div class="status-card">
+                        <span>CONTAINMENT</span>
+                        <strong class="green-text">READY</strong>
+                    </div>
+
+                    <div class="status-card">
+                        <span>MODE</span>
+                        <strong>SIMULATED</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             OFFENSIVE INTELLIGENCE
+             ========================================= -->
+
+        <section id="intelligence" class="section intelligence-section">
+
+            <div class="section-heading">
+                <span class="section-index">03</span>
+                <div>
+                    <p class="section-kicker">RED TEAM // ANALYSIS</p>
+                    <h2>OFFENSIVE INTELLIGENCE</h2>
+                </div>
+            </div>
+
+            <div class="pipeline offensive-pipeline">
+
+                <article class="pipeline-node">
+                    <span class="node-number">01</span>
+                    <span class="node-icon">⌁</span>
+                    <h3>RECON</h3>
+                    <p>SIMULATED DISCOVERY</p>
+                    <strong>92%</strong>
+                </article>
+
+                <span class="pipeline-arrow">→</span>
+
+                <article class="pipeline-node">
+                    <span class="node-number">02</span>
+                    <span class="node-icon">⌬</span>
+                    <h3>ENUMERATION</h3>
+                    <p>SIMULATED ANALYSIS</p>
+                    <strong>87%</strong>
+                </article>
+
+                <span class="pipeline-arrow">→</span>
+
+                <article class="pipeline-node">
+                    <span class="node-number">03</span>
+                    <span class="node-icon">◇</span>
+                    <h3>ATTACK SURFACE</h3>
+                    <p>THREAT MODELING</p>
+                    <strong>81%</strong>
+                </article>
+
+                <span class="pipeline-arrow">→</span>
+
+                <article class="pipeline-node">
+                    <span class="node-number">04</span>
+                    <span class="node-icon">◎</span>
+                    <h3>INTELLIGENCE</h3>
+                    <p>THREAT CORRELATION</p>
+                    <strong>94%</strong>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             THREAT RADAR
+             ========================================= -->
+
+        <section id="radar" class="section radar-section">
+
+            <div class="section-heading">
+                <span class="section-index">04</span>
+                <div>
+                    <p class="section-kicker">THREAT INTELLIGENCE // LIVE</p>
+                    <h2>THREAT RADAR</h2>
+                </div>
+            </div>
+
+            <div class="radar-layout">
+
+                <div class="radar-container">
+
+                    <div class="radar-grid"></div>
+                    <div class="radar-sweep"></div>
+
+                    <div class="radar-ring ring-one"></div>
+                    <div class="radar-ring ring-two"></div>
+                    <div class="radar-ring ring-three"></div>
+
+                    <div class="radar-cross horizontal"></div>
+                    <div class="radar-cross vertical"></div>
+
+                    <div class="radar-center">
+                        <span>THREAT</span>
+                        <strong>ELEVATED</strong>
+                    </div>
+
+                    <span class="radar-node node-a"></span>
+                    <span class="radar-node node-b"></span>
+                    <span class="radar-node node-c"></span>
+                    <span class="radar-node node-d"></span>
+
+                </div>
+
+                <div class="radar-data">
+
+                    <div class="metric">
+                        <span>DETECTED EVENTS</span>
+                        <strong data-counter="07">07</strong>
+                    </div>
+
+                    <div class="metric">
+                        <span>ACTIVE SIGNALS</span>
+                        <strong data-counter="03">03</strong>
+                    </div>
+
+                    <div class="metric">
+                        <span>CONFIDENCE</span>
+                        <strong>94.2%</strong>
+                    </div>
+
+                    <div class="metric">
+                        <span>STATUS</span>
+                        <strong class="red-text">ELEVATED</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             OFFENSE VS DEFENSE
+             ========================================= -->
+
+        <section id="defense" class="section balance-section">
+
+            <div class="section-heading">
+                <span class="section-index">05</span>
+                <div>
+                    <p class="section-kicker">RED TEAM // BLUE TEAM</p>
+                    <h2>OFFENSE VS DEFENSE</h2>
+                </div>
+            </div>
+
+            <div class="balance-grid">
+
+                <div class="side-panel offense-panel">
+
+                    <span class="panel-label">OFFENSIVE SIDE</span>
+
+                    <h3>OFFENSE</h3>
+
+                    <ul>
+                        <li>RECON</li>
+                        <li>ENUMERATION</li>
+                        <li>THREAT MODELING</li>
+                        <li>INTELLIGENCE</li>
+                    </ul>
+
+                    <div class="panel-status red-text">
+                        INTELLIGENCE ACTIVE
+                    </div>
+
+                </div>
+
+                <div class="balance-core">
+                    <span>OFFENSE</span>
+                    <strong>→</strong>
+                    <span>INTELLIGENCE</span>
+                    <strong>→</strong>
+                    <span>DEFENSE</span>
+                </div>
+
+                <div class="side-panel defense-panel">
+
+                    <span class="panel-label">DEFENSIVE SIDE</span>
+
+                    <h3>DEFENSE</h3>
+
+                    <ul>
+                        <li>DETECTION</li>
+                        <li>ANALYSIS</li>
+                        <li>CONTAINMENT</li>
+                        <li>RECOVERY</li>
+                    </ul>
+
+                    <div class="panel-status green-text">
+                        DEFENSE ONLINE
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             INCIDENT REPORT
+             ========================================= -->
+
+        <section id="incident" class="section incident-section">
+
+            <div class="section-heading">
+                <span class="section-index">06</span>
+                <div>
+                    <p class="section-kicker">FORENSICS // INCIDENT RESPONSE</p>
+                    <h2>INCIDENT REPORT</h2>
+                </div>
+            </div>
+
+            <div class="incident-dashboard">
+
+                <div class="incident-header">
+                    <div>
+                        <span>INCIDENT ID</span>
+                        <strong>CYB-2026-0817</strong>
+                    </div>
+
+                    <div>
+                        <span>STATUS</span>
+                        <strong class="green-text">CONTAINED</strong>
+                    </div>
+
+                    <div>
+                        <span>VECTOR</span>
+                        <strong>SIMULATED</strong>
+                    </div>
+
+                    <div>
+                        <span>SEVERITY</span>
+                        <strong class="red-text">HIGH</strong>
+                    </div>
+                </div>
+
+                <div class="incident-timeline">
+
+                    <div class="timeline-item">
+                        <span class="timeline-marker"></span>
+                        <div>
+                            <small>00:03.21</small>
+                            <strong>DETECTION</strong>
+                            <p>Simulated anomalous signal detected.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="timeline-marker"></span>
+                        <div>
+                            <small>00:08.74</small>
+                            <strong>ANALYSIS</strong>
+                            <p>Threat telemetry correlated.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="timeline-marker"></span>
+                        <div>
+                            <small>00:12.09</small>
+                            <strong>CONTAINMENT</strong>
+                            <p>Simulated defensive protocol activated.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item complete">
+                        <span class="timeline-marker"></span>
+                        <div>
+                            <small>00:16.42</small>
+                            <strong>RECOVERY</strong>
+                            <p>Security environment stabilized.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             FINAL SECURITY STATUS
+             ========================================= -->
+
+        <section class="final-section">
+
+            <div class="final-status">
+
+                <p class="section-kicker">FINAL SECURITY STATE</p>
+
+                <h2>
+                    SYSTEM
+                    <span class="green-text">CONTAINED</span>
+                </h2>
+
+                <div class="final-grid">
+
+                    <div>
+                        <span>THREAT</span>
+                        <strong class="red-text">ELEVATED</strong>
+                    </div>
+
+                    <div>
+                        <span>SIGNALS</span>
+                        <strong>03</strong>
+                    </div>
+
+                    <div>
+                        <span>INCIDENTS</span>
+                        <strong>07</strong>
+                    </div>
+
+                    <div>
+                        <span>DEFENSE</span>
+                        <strong class="green-text">ONLINE</strong>
+                    </div>
+
+                </div>
+
+                <div class="final-actions">
+                    <a href="#hero" class="cyber-button primary">
+                        RETURN TO CORE
+                    </a>
+
+                    <button id="replay-boot"
+                            class="cyber-button secondary"
+                            type="button">
+                        REPLAY BOOT
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+
+    <footer class="site-footer">
+
+        <div class="footer-brand">
+            CYBER<span>//</span>BREACH
+        </div>
+
+        <div class="footer-center">
+            OFFENSIVE INTELLIGENCE // DEFENSIVE RESPONSE
+        </div>
+
+        <div class="footer-status">
+            AUTHORIZED SIMULATION
+        </div>
+
+        <p class="footer-disclaimer">
+            This website is a fictional cybersecurity visualization.
+            No real systems, networks or external targets are accessed.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================
+         JAVASCRIPT MODULES
+         ========================================= -->
+
+    <script src="js/boot.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/radar.js"></script>
+    <script src="js/glitch.js"></script>
+    <script src="js/telemetry.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
