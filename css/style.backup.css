@@ -16,37 +16,28 @@
    ========================================================= */
 
 :root {
-    --bg: #050403;
-    --bg-soft: #0a0807;
-    --surface: #0d0b0a;
-    --surface-2: #141110;
+    --bg: #030303;
+    --bg-soft: #070707;
+    --surface: #0a0a0a;
+    --surface-2: #101010;
 
-    /* Red is a semantic alarm color now, not decoration —
-       it appears only where something is actually critical. */
-    --red: #e4283f;
-    --red-dark: #7a0f1f;
-    --red-soft: rgba(228, 40, 63, 0.14);
+    --red: #ff1744;
+    --red-dark: #8b001f;
+    --red-soft: rgba(255, 23, 68, 0.16);
 
-    --green: #2fd889;
-    --green-soft: rgba(47, 216, 137, 0.13);
+    --green: #39ff88;
+    --green-soft: rgba(57, 255, 136, 0.14);
 
-    --amber: #e8a13c;
-    --amber-soft: rgba(232, 161, 60, 0.14);
+    --cyan: #00e5ff;
 
-    --cyan: #3fd0e0;
+    --white: #f5f5f5;
 
-    --white: #f2ede8;
+    --muted: #777;
+    --muted-light: #aaa;
 
-    /* Warm-neutral gray step, not pure gray — keeps the whole
-       page in one temperature instead of red-on-cold-black. */
-    --ink-1: #cfc7c0;
-    --ink-2: #9c938c;
-    --muted: #6f665f;
-    --muted-light: #9c938c;
-
-    --border: rgba(242, 237, 232, 0.08);
-    --border-red: rgba(228, 40, 63, 0.32);
-    --border-green: rgba(47, 216, 137, 0.28);
+    --border: rgba(255, 255, 255, 0.09);
+    --border-red: rgba(255, 23, 68, 0.35);
+    --border-green: rgba(57, 255, 136, 0.30);
 
     --mono: "JetBrains Mono", monospace;
     --display: "Space Grotesk", sans-serif;
@@ -378,35 +369,25 @@ img {
 
     gap: 12px;
 
-    margin-bottom: 28px;
+    margin-bottom: 22px;
 
     font-family: var(--mono);
 
     font-size: 9px;
 
-    letter-spacing: 0.28em;
+    letter-spacing: 0.25em;
 
-    color: var(--ink-2);
+    color: var(--muted-light);
 }
 
 .classification-line {
-    width: 30px;
+    width: 38px;
     height: 1px;
 
-    background: var(--border);
-}
-
-.classification::before {
-    content: "";
-
-    width: 5px;
-    height: 5px;
-    flex: none;
-
     background: var(--red);
-    border-radius: 50%;
 
-    box-shadow: 0 0 8px rgba(228, 40, 63, 0.6);
+    box-shadow:
+        0 0 10px rgba(255, 23, 68, 0.35);
 }
 
 .hero-eyebrow,
@@ -430,41 +411,34 @@ img {
     font-family: var(--display);
 
     font-size:
-        clamp(64px, 11vw, 168px);
+        clamp(80px, 15vw, 220px);
 
-    line-height: 0.86;
+    line-height: 0.8;
 
     font-weight: 700;
 
-    letter-spacing: -0.04em;
+    letter-spacing: -0.08em;
 
-    color: var(--white);
+    color: #fff;
 
     text-shadow:
-        0 0 40px rgba(228, 40, 63, 0.18);
+        0 0 25px rgba(255, 255, 255, 0.12),
+        0 0 70px rgba(255, 23, 68, 0.15);
 }
 
 .hero-subtitle {
     display: flex;
 
-    align-items: center;
+    gap: 12px;
 
-    gap: 14px;
-
-    margin-top: 22px;
-
-    padding-top: 22px;
-
-    border-top: 1px solid var(--border);
+    margin-top: 25px;
 
     font-family: var(--mono);
 
     font-size:
-        clamp(12px, 1.1vw, 15px);
+        clamp(15px, 2vw, 25px);
 
-    letter-spacing: 0.22em;
-
-    color: var(--ink-2);
+    letter-spacing: 0.18em;
 }
 
 .accent-red,
@@ -515,15 +489,10 @@ img {
     min-height: 46px;
 
     padding:
-        0 24px 0 20px;
+        0 22px;
 
     border:
         1px solid var(--border);
-
-    /* Clipped corner — a small "redacted stamp" notch that
-       repeats the corner-bracket motif used on the cards below,
-       so it reads as a chosen mark, not a default rectangle. */
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
 
     font-family: var(--mono);
 
@@ -545,17 +514,15 @@ img {
 
     border-color: var(--red);
 
-    color: var(--bg);
-
-    font-weight: 600;
+    color: #fff;
 
     box-shadow:
-        0 0 0 rgba(228, 40, 63, 0);
+        0 0 25px rgba(255, 23, 68, 0.20);
 }
 
 .cyber-button.secondary {
     background:
-        rgba(242, 237, 232, 0.02);
+        rgba(255, 255, 255, 0.025);
 
     color: var(--white);
 }
@@ -567,7 +534,7 @@ img {
 
 .cyber-button.primary:hover {
     box-shadow:
-        0 6px 22px rgba(228, 40, 63, 0.35);
+        0 0 30px rgba(255, 23, 68, 0.45);
 }
 
 .cyber-button.secondary:hover {
@@ -623,20 +590,19 @@ img {
     */
     top: 50%;
 
-    right: 4vw;
+    right: 2vw;
 
     transform:
         translateY(-47%);
 
     /*
-       Sized down so the operator visual reads as evidence
-       alongside the headline, not a competing focal point.
+       Increased size.
     */
     width:
-        min(34vw, 460px);
+        min(48vw, 690px);
 
     height:
-        min(58vh, 560px);
+        min(82vh, 820px);
 
     z-index: 3;
 
@@ -687,8 +653,8 @@ img {
     background:
         radial-gradient(
             ellipse at center,
-            rgba(228, 40, 63, 0.14) 0%,
-            rgba(228, 40, 63, 0.06) 38%,
+            rgba(255, 23, 68, 0.23) 0%,
+            rgba(255, 23, 68, 0.10) 38%,
             transparent 72%
         );
 
@@ -767,39 +733,6 @@ img {
     z-index: 4;
 }
 
-/* Case-file corner brackets — repeats the .card-corner motif
-   used on the operator/intel cards further down the page, so
-   the hero image reads as "exhibit" rather than a floating icon. */
-.operator-visual .card-corner {
-    width: 22px;
-    height: 22px;
-
-    border-color: rgba(242, 237, 232, 0.35);
-
-    z-index: 8;
-}
-
-.operator-exhibit-tag {
-    position: absolute;
-
-    top: 10%;
-    left: 4%;
-
-    z-index: 8;
-
-    font-family: var(--mono);
-
-    font-size: 8px;
-
-    letter-spacing: 0.2em;
-
-    color: var(--ink-2);
-}
-
-.operator-exhibit-tag strong {
-    color: var(--red);
-}
-
 
 /* =========================================================
    IMAGE HALO
@@ -867,21 +800,18 @@ img {
     */
     mix-blend-mode: screen;
 
-    /*
-       Desaturated toward monochrome instead of full-saturation
-       stock red — reads as a scanned/forensic exhibit rather
-       than a clip-art warning icon.
-    */
     filter:
-        grayscale(0.6)
-        brightness(0.92)
-        contrast(1.2)
-        saturate(0.7)
+        brightness(0.94)
+        contrast(1.14)
+        saturate(0.95)
         drop-shadow(
-            0 0 14px rgba(228, 40, 63, 0.22)
+            0 0 16px rgba(255, 23, 68, 0.32)
+        )
+        drop-shadow(
+            0 0 45px rgba(255, 23, 68, 0.17)
         );
 
-    opacity: 0.92;
+    opacity: 0.98;
 
     user-select: none;
 
@@ -2966,4 +2896,134 @@ img {
         scroll-behavior:
             auto !important;
     }
+}
+
+/* =========================================================
+   PROFESSIONAL / CINEMATIC POLISH LAYER
+   Appended overrides — cascade wins over earlier rules
+   ========================================================= */
+
+/* Deeper base atmosphere */
+body {
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(255, 23, 68, 0.12),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(255, 23, 68, 0.04),
+            transparent 45%
+        ),
+        var(--bg);
+}
+
+/* Ambient full-page vignette for cinematic depth */
+.background-system::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 40%,
+            rgba(0, 0, 0, 0.65) 100%
+        );
+    pointer-events: none;
+}
+
+/* Header: crisper divider, subtle red hairline glow */
+.site-header {
+    border-bottom: 1px solid rgba(255, 23, 68, 0.14);
+    box-shadow: 0 1px 30px rgba(255, 23, 68, 0.06);
+}
+
+.brand {
+    text-shadow: 0 0 18px rgba(255, 23, 68, 0.25);
+}
+
+/* Hero title: persistent faint chromatic edge, not just idle-tick */
+.hero-title {
+    text-shadow:
+        0 0 25px rgba(255, 255, 255, 0.12),
+        0 0 90px rgba(255, 23, 68, 0.22),
+        1px 0 0 rgba(255, 23, 68, 0.10),
+        -1px 0 0 rgba(0, 229, 255, 0.08);
+}
+
+/* Tactical clipped-corner buttons instead of plain rectangles */
+.cyber-button {
+    clip-path: polygon(
+        12px 0, 100% 0,
+        100% calc(100% - 12px), calc(100% - 12px) 100%,
+        0 100%, 0 12px
+    );
+    border-radius: 0;
+}
+
+.cyber-button.primary {
+    box-shadow:
+        0 0 25px rgba(255, 23, 68, 0.28),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.cyber-button.primary:hover {
+    box-shadow:
+        0 0 40px rgba(255, 23, 68, 0.55),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.cyber-button.secondary {
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Section index numbers: sharper glow, feels more like HUD readout */
+.section-index {
+    text-shadow: 0 0 10px rgba(255, 23, 68, 0.7);
+    font-weight: 600;
+}
+
+/* Cards: more depth by default, not just on hover */
+.visual-card,
+.terminal-window,
+.incident-dashboard {
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.visual-card:hover {
+    box-shadow:
+        0 30px 90px rgba(255, 23, 68, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Pipeline nodes: sharper number badges */
+.node-number {
+    font-weight: 600;
+    color: rgba(255, 23, 68, 0.45);
+}
+
+/* Radar center readout: extra weight for legibility/authority */
+.radar-center strong {
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+/* Footer: quieter, more "classified doc" feel */
+.site-footer {
+    border-top: 1px solid rgba(255, 23, 68, 0.10);
+}
+
+.footer-brand {
+    text-shadow: 0 0 20px rgba(255, 23, 68, 0.2);
+}
+
+/* Boot screen: heavier brand weight for impact */
+.boot-brand {
+    text-shadow:
+        0 0 40px rgba(255, 23, 68, 0.5),
+        0 0 90px rgba(255, 23, 68, 0.15);
 }
