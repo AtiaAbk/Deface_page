@@ -623,20 +623,20 @@ img {
     */
     top: 50%;
 
-    right: 4vw;
+    right: 2vw;
 
     transform:
         translateY(-47%);
 
     /*
-       Sized down so the operator visual reads as evidence
-       alongside the headline, not a competing focal point.
+       Size kept at the original scale — approved by the user.
+       Only the treatment (desaturation, framing) changed below.
     */
     width:
-        min(34vw, 460px);
+        min(48vw, 690px);
 
     height:
-        min(58vh, 560px);
+        min(82vh, 820px);
 
     z-index: 3;
 
